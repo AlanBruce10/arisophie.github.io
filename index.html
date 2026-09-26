@@ -384,6 +384,15 @@
             font-weight: bold;
         }
 
+        .small-note {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 10px;
+            line-height: 1.4;
+        }
+
         /* --- POLÍTICA DE MOVILIDAD --- */
         .mobility-section {
             padding: 60px 0;
@@ -414,6 +423,13 @@
 
         .mobility-box strong {
             color: #fff;
+        }
+
+        .mobility-box .coordination {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 10px;
         }
 
         /* --- GALERÍA DE EVENTOS --- */
@@ -642,8 +658,8 @@
         <div class="container">
             <h2 class="video-title">Estreno Oficial: <span>Canta hoy, vive hoy</span></h2>
             <div class="video-wrapper">
-                <!-- Reemplaza el ID 'dQw4w9WgXcQ' con el ID de tu video oficial -->
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Ari Sophie - Canta hoy, vive hoy (Video Oficial)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- Video de presentación (reemplazar luego por el videoclip oficial) -->
+                <iframe src="https://www.youtube.com/embed/EJtlZ6-Jft0" title="Ari Sophie - Presentación" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -717,7 +733,7 @@
         </div>
     </section>
 
-    <!-- 6. PAQUETES Y TARIFAS -->
+    <!-- 6. PAQUETES Y TARIFAS (PRECIOS AJUSTADOS SIN MOVILIDAD) -->
     <section class="pricing-section">
         <div class="container">
             <h2 class="section-title">Paquetes Oficiales</h2>
@@ -725,32 +741,44 @@
                 <!-- Show Exprés -->
                 <div class="pricing-card">
                     <h3>Show Exprés</h3>
-                    <div class="price">S/ 150</div>
+                    <div class="price">S/ 100</div>
                     <ul>
                         <li>1 o 2 Canciones</li>
                         <li>Incluye dedicatorias emotivas</li>
                         <li>Ideal para sorpresas rápidas</li>
                     </ul>
+                    <div class="small-note">
+                        * Precio válido para Lima Metropolitana. Movilidad plana de S/ 50 se suma al total.<br>
+                        * Lima Provincias y otras regiones: coordinar tarifa de movilidad.
+                    </div>
                 </div>
                 <!-- Media Hora -->
                 <div class="pricing-card">
                     <h3>Media Hora de Show</h3>
-                    <div class="price">S/ 200</div>
+                    <div class="price">S/ 150</div>
                     <ul>
                         <li>Perfecto para momentos familiares</li>
                         <li>Bloques llenos de sentimiento</li>
                         <li>Interacción con el público</li>
                     </ul>
+                    <div class="small-note">
+                        * Precio válido para Lima Metropolitana. Movilidad plana de S/ 50 se suma al total.<br>
+                        * Lima Provincias y otras regiones: coordinar tarifa de movilidad.
+                    </div>
                 </div>
                 <!-- Una Hora -->
                 <div class="pricing-card">
                     <h3>Una Hora Completa</h3>
-                    <div class="price">S/ 350</div>
+                    <div class="price">S/ 300</div>
                     <ul>
                         <li>Espectáculo estelar</li>
                         <li>Versatilidad total de principio a fin</li>
                         <li>Repertorio completo (Mariachi, Huayno y Fiesta)</li>
                     </ul>
+                    <div class="small-note">
+                        * Precio válido para Lima Metropolitana. Movilidad plana de S/ 50 se suma al total.<br>
+                        * Lima Provincias y otras regiones: coordinar tarifa de movilidad.
+                    </div>
                 </div>
             </div>
         </div>
@@ -760,10 +788,10 @@
     <section class="mobility-section">
         <div class="container">
             <div class="mobility-box">
-                <h3>🚐 Política de Movilidad Transparente</h3>
-                <p>Las tarifas ya incluyen una <strong>movilidad plana de S/ 50</strong> para todo Lima Metropolitana.</p>
-                <p>Para <strong>Lima Provincias</strong>, la movilidad es de <strong>S/ 100</strong>.</p>
-                <p>Garantizamos transporte privado certificado, cuidando la puntualidad y el vestuario profesional en cada presentación.</p>
+                <h3>🚐 Política de Movilidad</h3>
+                <p>Las tarifas mostradas aplican para <strong>Lima Metropolitana</strong>. Se añade una <strong>tarifa plana de movilidad de S/ 50</strong> por transporte privado certificado.</p>
+                <p>Para <strong>Lima Provincias y otras regiones</strong>, la tarifa de movilidad se coordina directamente según la ubicación.</p>
+                <p class="coordination">Garantizamos puntualidad y el cuidado del vestuario profesional en cada presentación.</p>
             </div>
         </div>
     </section>
