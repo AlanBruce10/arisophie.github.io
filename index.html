@@ -105,18 +105,20 @@
         }
         header h2 span { color: var(--gold); font-weight: 600; }
 
+        /* --- BOTONES DEL HERO (3 BOTONES) --- */
         .hero-buttons {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
+            max-width: 700px;
         }
 
         .cta-hero {
             display: inline-flex; align-items: center; gap: 10px;
             background-color: transparent; color: var(--gold);
-            padding: 15px 35px; border-radius: 50px;
-            text-decoration: none; font-weight: bold; font-size: 1.1rem;
+            padding: 15px 30px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; font-size: 1rem;
             transition: all 0.3s ease; border: 2px solid var(--gold);
             cursor: pointer;
         }
@@ -129,14 +131,34 @@
         .cta-hero-secondary {
             display: inline-flex; align-items: center; gap: 10px;
             background-color: var(--gold); color: #0f0f1a;
-            padding: 15px 35px; border-radius: 50px;
-            text-decoration: none; font-weight: bold; font-size: 1.1rem;
+            padding: 15px 30px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; font-size: 1rem;
             transition: all 0.3s ease; border: 2px solid var(--gold);
         }
         .cta-hero-secondary:hover {
             background-color: transparent; color: var(--gold);
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+        }
+
+        /* Botón WhatsApp del Hero */
+        .cta-hero-whatsapp {
+            display: inline-flex; align-items: center; gap: 10px;
+            background-color: var(--whatsapp); color: #fff;
+            padding: 15px 30px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; font-size: 1rem;
+            transition: all 0.3s ease; border: 2px solid var(--whatsapp);
+        }
+        .cta-hero-whatsapp:hover {
+            background-color: #20b859;
+            border-color: #20b859;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+        .cta-hero-whatsapp svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
         }
 
         /* --- VIDEO --- */
@@ -484,13 +506,18 @@
             box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
             background-color: #20b859;
         }
+        .cta-final svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
         .footer-text { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; }
         .footer-policy {
             color: #666; font-size: 0.8rem;
             max-width: 600px; margin: 0 auto; line-height: 1.5;
         }
 
-        /* --- BOTÓN FLOTANTE WHATSAPP (CON LOGO OFICIAL) --- */
+        /* --- BOTÓN FLOTANTE WHATSAPP --- */
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px;
             background-color: var(--whatsapp); color: #fff;
@@ -616,6 +643,7 @@
             .pricing-card { padding: 25px 20px; }
             .price { font-size: 2.2rem; }
             .cta-final { font-size: 1rem; padding: 15px 25px; }
+            .cta-final svg { width: 20px; height: 20px; }
             .whatsapp-float {
                 width: 50px; height: 50px;
                 bottom: 20px; right: 20px;
@@ -638,7 +666,7 @@
             .lightbox-close { font-size: 2.5rem; top: 15px; right: 20px; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .hero-buttons { flex-direction: column; width: 100%; }
-            .cta-hero, .cta-hero-secondary { width: 100%; justify-content: center; }
+            .cta-hero, .cta-hero-secondary, .cta-hero-whatsapp { width: 100%; justify-content: center; }
         }
 
         @media (max-width: 480px) {
@@ -649,7 +677,7 @@
 </head>
 <body>
 
-    <!-- 1. HEADER CON DOS BOTONES -->
+    <!-- 1. HEADER CON 3 BOTONES (VER SHOW, EVENTOS PASADOS, WHATSAPP) -->
     <header>
         <div class="profile-img-container" onclick="openLightbox('perfil.jpg', 'Ari Sophie', 'Artista versátil')">
             <img src="perfil.jpg" alt="Ari Sophie - Mariachi y Huayno">
@@ -659,6 +687,10 @@
         <div class="hero-buttons">
             <a href="#video" class="cta-hero">▶ Ver Show</a>
             <a href="#galeria" class="cta-hero-secondary">📸 Eventos Pasados</a>
+            <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20coordinar%20un%20show%20para%20mi%20evento." class="cta-hero-whatsapp" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Contacto
+            </a>
         </div>
     </header>
 
@@ -773,7 +805,6 @@
             <h2 class="section-title fade-in">Galería de Eventos</h2>
             <div class="gallery-grid fade-in">
 
-                <!-- Foto 1 -->
                 <div class="gallery-item" onclick="openLightbox('SERENATA_A_PROFESORA.png', 'Serenata para profesora de primaria', 'Un momento emotivo para agradecer a quien dedica su vida a enseñar.')">
                     <img src="SERENATA_A_PROFESORA.png" alt="Serenata a profesora" loading="lazy">
                     <div class="gallery-caption">
@@ -782,7 +813,6 @@
                     </div>
                 </div>
 
-                <!-- Foto 2 -->
                 <div class="gallery-item" onclick="openLightbox('MADRE_PROF.png', 'Show para madrecita', 'Una presentación que conmovió a toda la familia.')">
                     <img src="MADRE_PROF.png" alt="Show para madrecita" loading="lazy">
                     <div class="gallery-caption">
@@ -791,7 +821,6 @@
                     </div>
                 </div>
 
-                <!-- Foto 3 -->
                 <div class="gallery-item" onclick="openLightbox('ANIVER_SAN.png', 'Recibimiento en aniversario de colegio', 'Alegría y música para celebrar un año más de la institución.')">
                     <img src="ANIVER_SAN.png" alt="Aniversario de colegio" loading="lazy">
                     <div class="gallery-caption">
@@ -800,7 +829,6 @@
                     </div>
                 </div>
 
-                <!-- Foto 4 -->
                 <div class="gallery-item" onclick="openLightbox('canta_sta_ro.png', 'Canto de las Mañanitas a Santa Rosa de Lima', 'Celebración por el 30 de agosto, aniversario de Lima.')">
                     <img src="canta_sta_ro.png" alt="Santa Rosa de Lima" loading="lazy">
                     <div class="gallery-caption">
@@ -809,7 +837,6 @@
                     </div>
                 </div>
 
-                <!-- Foto 5 -->
                 <div class="gallery-item" onclick="openLightbox('plaza_lima.png', 'Aniversario de Lima', 'Un momento especial en el corazón de la ciudad.')">
                     <img src="plaza_lima.png" alt="Aniversario de Lima" loading="lazy">
                     <div class="gallery-caption">
@@ -927,7 +954,7 @@
     <footer>
         <div class="container">
             <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20armar%20mi%20show%20por%20WhatsApp." class="cta-final" target="_blank">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 Armar mi Show por WhatsApp
             </a>
             <p class="footer-text">© 2026 Ari Sophie. Todos los derechos reservados.</p>
