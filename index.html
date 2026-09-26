@@ -1006,4 +1006,112 @@
         <div class="container">
             <div class="mobility-box">
                 <h3>🚐 Política de Movilidad</h3>
-                <p>Las tarifas mostradas aplican para <strong>Lima Metropolitana</strong>. Se añade una <strong>tarifa plana de movilidad de S
+                <p>Las tarifas mostradas aplican para <strong>Lima Metropolitana</strong>. Se añade una <strong>tarifa plana de movilidad de S/ 50</strong> por transporte privado certificado.</p>
+                <p>Para <strong>Lima Provincias y otras regiones</strong>, la tarifa de movilidad se coordina directamente según la ubicación.</p>
+                <p class="coordination">Garantizamos puntualidad y el cuidado del vestuario profesional en cada presentación.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. GALERÍA DE EVENTOS (AHORA CON TU FOTO REAL) -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Galería de Eventos</h2>
+            <div class="gallery-grid">
+                <!-- Foto real que subiste -->
+                <div class="gallery-item">
+                    <img src="SERENATA_A_PROFESORA.png" alt="Ari Sophie en serenata a profesora">
+                </div>
+                <!-- Placeholders para futuras fotos -->
+                <div class="gallery-item">📸<br>Foto 2</div>
+                <div class="gallery-item">📸<br>Foto 3</div>
+                <div class="gallery-item">📸<br>Foto 4</div>
+                <div class="gallery-item">📸<br>Foto 5</div>
+                <div class="gallery-item">📸<br>Foto 6</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. TARJETA VIRTUAL (NUEVA SECCIÓN) -->
+    <section class="virtual-card-section">
+        <div class="container">
+            <h2 class="section-title">Tarjeta Virtual</h2>
+            <div class="virtual-card">
+                <h3>Ari Sophie</h3>
+                <p class="subtitle">Mariachi • Huayno • Ritmos Latinos</p>
+                
+                <!-- Código QR: genera el tuyo en qr-code-generator.com apuntando a https://arisophie.me -->
+                <!-- Por ahora usa un placeholder; reemplaza con tu QR real -->
+                <div class="qr-container">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://arisophie.me&color=f39c12&bgcolor=ffffff" alt="QR Ari Sophie">
+                </div>
+
+                <p class="contact-info">📞 <span>+51 916 489 520</span></p>
+                <a href="https://arisophie.me" class="web-link" target="_blank">arisophie.me</a>
+
+                <div class="card-actions">
+                    <!-- Botón WhatsApp -->
+                    <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Vi%20su%20tarjeta%20virtual%20y%20quiero%20informaci%C3%B3n." class="card-btn btn-whatsapp" target="_blank">
+                        📲 WhatsApp
+                    </a>
+                    <!-- Botón Compartir (Web Share API) -->
+                    <button onclick="sharePage()" class="card-btn btn-share">
+                        🔗 Compartir
+                    </button>
+                    <!-- Botón Guardar en favoritos (solo funciona en algunos navegadores) -->
+                    <button onclick="addToFavorites()" class="card-btn btn-save">
+                        ⭐ Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FOOTER Y CTA FINAL -->
+    <footer>
+        <div class="container">
+            <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20armar%20mi%20show%20por%20WhatsApp." class="cta-final" target="_blank">📲 Armar mi Show por WhatsApp</a>
+            <p class="footer-text">© 2026 Ari Sophie. Todos los derechos reservados. | Diseño profesional para artistas.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20coordinar%20un%20show." class="whatsapp-float" target="_blank" title="Reservar por WhatsApp">📲</a>
+
+    <!-- SCRIPT PARA COMPARTIR Y GUARDAR -->
+    <script>
+        // Función para compartir la página
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Ari Sophie - Mariachi, Huayno y Ritmos Latinos',
+                    text: 'Mira el show de Ari Sophie. ¡Contrátala para tu evento!',
+                    url: 'https://arisophie.me'
+                }).catch((error) => console.log('Error al compartir:', error));
+            } else {
+                // Fallback: copiar al portapapeles
+                navigator.clipboard.writeText('https://arisophie.me').then(() => {
+                    alert('¡Enlace copiado! Compártelo con quien quieras.');
+                }).catch(() => {
+                    prompt('Copia este enlace:', 'https://arisophie.me');
+                });
+            }
+        }
+
+        // Función para intentar guardar en favoritos (solo algunos navegadores lo permiten)
+        function addToFavorites() {
+            if (window.sidebar && window.sidebar.addPanel) {
+                // Firefox antiguo
+                window.sidebar.addPanel('Ari Sophie', 'https://arisophie.me', '');
+            } else if (window.external && ('AddFavorite' in window.external)) {
+                // IE
+                window.external.AddFavorite('https://arisophie.me', 'Ari Sophie');
+            } else {
+                // Chrome, Safari, Edge: mostrar instrucciones
+                alert('Para guardar esta página:\n\n📱 En móvil: toca el menú (⋮ o ⋯) y elige "Añadir a pantalla de inicio".\n\n💻 En PC: presiona Ctrl+D (Windows) o Cmd+D (Mac).');
+            }
+        }
+    </script>
+
+</body>
+</html>
