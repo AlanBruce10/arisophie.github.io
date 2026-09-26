@@ -61,11 +61,7 @@
             border-radius: 2px;
         }
 
-        .gold-text {
-            color: var(--gold);
-        }
-
-        /* --- HEADER & HERO --- */
+        /* --- HEADER & HERO (SIN BOTÓN DE RESERVA) --- */
         header {
             min-height: 100vh;
             display: flex;
@@ -87,7 +83,6 @@
             box-shadow: 0 0 35px rgba(243, 156, 18, 0.5);
             margin-bottom: 25px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
             background-color: #1a1a2e;
         }
 
@@ -127,26 +122,30 @@
             font-weight: 600;
         }
 
+        /* Botón de "Ver Show" que baja al video */
         .cta-hero {
-            display: inline-block;
-            background-color: var(--whatsapp);
-            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: transparent;
+            color: var(--gold);
             padding: 15px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            border: 2px solid var(--gold);
         }
 
         .cta-hero:hover {
+            background-color: var(--gold);
+            color: #0f0f1a;
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
-            background-color: #20b859;
+            box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
         }
 
-        /* --- SECCIÓN VIDEO --- */
+        /* --- SECCIÓN VIDEO (PRIMERA SECCIÓN DESPUÉS DEL HERO) --- */
         .video-section {
             padding: 80px 0;
             background-color: var(--bg-card);
@@ -186,7 +185,7 @@
             color: var(--gold);
         }
 
-        /* --- SECCIÓN BIOGRAFÍA --- */
+        /* --- BIOGRAFÍA --- */
         .bio-section {
             padding: 80px 0;
             background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
@@ -207,48 +206,6 @@
         .bio-content strong {
             color: var(--gold);
             font-weight: 600;
-        }
-
-        /* --- LETRA DE LA CANCIÓN --- */
-        .lyrics-section {
-            padding: 60px 0;
-            background-color: var(--bg-card);
-            border-top: 1px solid rgba(243, 156, 18, 0.1);
-            border-bottom: 1px solid rgba(243, 156, 18, 0.1);
-        }
-
-        .lyrics-container {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-            background: rgba(15, 15, 26, 0.6);
-            padding: 40px 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(243, 156, 18, 0.2);
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
-        }
-
-        .lyrics-container h3 {
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            font-style: italic;
-            letter-spacing: 2px;
-        }
-
-        .lyrics-container p {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #ddd;
-            line-height: 1.8;
-        }
-
-        .lyrics-container .chorus {
-            color: var(--gold-light);
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 25px 0;
-            text-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
         }
 
         /* --- REPERTORIO Y PAQUETES TEMÁTICOS --- */
@@ -650,44 +607,6 @@
             transform: translateY(-3px);
         }
 
-        /* --- REDES SOCIALES (preparado por si acaso) --- */
-        .social-section {
-            padding: 60px 0;
-            background-color: var(--bg-card);
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .social-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #1a1a2e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(243, 156, 18, 0.3);
-        }
-
-        .social-btn:hover {
-            background-color: var(--gold);
-            color: #0f0f1a;
-            transform: translateY(-5px) scale(1.1);
-            border-color: var(--gold);
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
-        }
-
         /* --- FOOTER Y CTA FINAL --- */
         footer {
             padding: 60px 20px;
@@ -721,11 +640,6 @@
         .footer-text {
             color: var(--text-muted);
             font-size: 0.9rem;
-        }
-
-        .footer-text a {
-            color: var(--gold);
-            text-decoration: none;
         }
 
         /* --- BOTÓN FLOTANTE WHATSAPP --- */
@@ -762,88 +676,46 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-            header h2 {
-                font-size: 1rem;
-            }
-            .profile-img-container {
-                width: 200px;
-                height: 260px;
-            }
-            .section-title {
-                font-size: 1.6rem;
-            }
-            .video-title {
-                font-size: 1.3rem;
-            }
-            .pricing-card {
-                padding: 25px 20px;
-            }
-            .price {
-                font-size: 2.2rem;
-            }
-            .cta-final {
-                font-size: 1rem;
-                padding: 15px 25px;
-            }
+            header h1 { font-size: 2.5rem; }
+            header h2 { font-size: 1rem; }
+            .profile-img-container { width: 200px; height: 260px; }
+            .section-title { font-size: 1.6rem; }
+            .video-title { font-size: 1.3rem; }
+            .pricing-card { padding: 25px 20px; }
+            .price { font-size: 2.2rem; }
+            .cta-final { font-size: 1rem; padding: 15px 25px; }
             .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 1.6rem;
-                bottom: 20px;
-                right: 20px;
+                width: 50px; height: 50px; font-size: 1.6rem;
+                bottom: 20px; right: 20px;
             }
-            .virtual-card {
-                padding: 30px 20px;
-            }
-            .virtual-card .qr-container img {
-                width: 150px;
-                height: 150px;
-            }
-            .card-actions {
-                flex-direction: column;
-            }
-            .card-btn {
-                width: 100%;
-                justify-content: center;
-            }
+            .virtual-card { padding: 30px 20px; }
+            .virtual-card .qr-container img { width: 150px; height: 150px; }
+            .card-actions { flex-direction: column; }
+            .card-btn { width: 100%; justify-content: center; }
         }
 
         @media (max-width: 480px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            .profile-img-container {
-                width: 180px;
-                height: 230px;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .social-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
+            header h1 { font-size: 2rem; }
+            .profile-img-container { width: 180px; height: 230px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. HEADER & HERO SECTION -->
+    <!-- 1. HEADER & HERO (SIN BOTÓN DE RESERVA, SOLO "VER SHOW") -->
     <header>
         <div class="profile-img-container">
             <img src="perfil.jpg" alt="Ari Sophie - Mariachi y Huayno">
         </div>
         <h1>Ari Sophie</h1>
         <h2><span>Mariachi, Huayno y Ritmos Latinos</span> • Espectáculo Sentimental y Versátil</h2>
-        <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20coordinar%20un%20show%20para%20mi%20evento." class="cta-hero" target="_blank">📲 Reservar Fecha</a>
+        <!-- Botón que baja al video, en lugar de reservar -->
+        <a href="#video" class="cta-hero">▶ Ver Show</a>
     </header>
 
-    <!-- 2. SECCIÓN DE VIDEO PRINCIPAL -->
-    <section class="video-section">
+    <!-- 2. SECCIÓN DE VIDEO PRINCIPAL (PRIMERA COSA QUE VE EL USUARIO) -->
+    <section class="video-section" id="video">
         <div class="container">
             <h2 class="video-title">Estreno Oficial: <span>Canta hoy, vive hoy</span></h2>
             <div class="video-wrapper">
@@ -858,51 +730,16 @@
             <h2 class="section-title">Sobre Ari Sophie</h2>
             <div class="bio-content">
                 <p>Ari Sophie es una niña de <strong>12 años</strong> que descubrió en la música una forma de expresar lo que siente. Le encanta el mariachi, el huayno y los ritmos latinos, y disfruta compartir ese cariño con cada persona que la escucha.</p>
-                <p>Cuando se sube al escenario, lo que más le importa es que la gente sonría, se emocione y se sienta parte del show. No pretende ser la mejor, solo dar lo mejor de sí en cada presentación, con respeto, puntualidad y mucho corazón. Si su música logra alegrar un momento especial, para ella ya es un éxito.</p>
+                <p>Cuando se sube al escenario, lo que más le importa es que la gente sonría, se emocione y se sienta parte del show. No pretende ser la mejor, solo dar lo mejor de sí en cada presentación, con respeto, puntualidad y mucho corazón.</p>
             </div>
         </div>
     </section>
 
-    <!-- 4. LETRA DE LA CANCIÓN -->
-    <section class="lyrics-section">
-        <div class="container">
-            <h2 class="section-title">Hit de Escenario</h2>
-            <div class="lyrics-container">
-                <h3>🎤 Canta hoy, vive hoy</h3>
-                <p><em>(Versión Concierto y Sentimiento)</em></p>
-                
-                <p style="margin-top: 20px;"><strong>Primera estrofa</strong></p>
-                <p>Este es un nuevo show</p>
-                <p>que vamos a cantar</p>
-                <p>y es hermoso</p>
-                <p>un canto que es muy profundo</p>
-                <p>si vibras junto a mi serás feliz</p>
-
-                <div class="chorus">
-                    <p>¡Canta hoy, vive hoy! ¡Que el canto suene fuerte de verdad!</p>
-                    <p>¡Siente hoy, canta hoy! ¡Es el nuevo concierto que vivirás!</p>
-                </div>
-
-                <p><strong>Segunda estrofa</strong></p>
-                <p>Mi traje va a brillar</p>
-                <p>Cuando entre a cantar</p>
-                <p>Mariachi, huayno y todo ritmo</p>
-                <p>con este show más alma te será</p>
-
-                <div class="chorus">
-                    <p>¡Canta hoy, vive hoy! ¡Que el canto suene fuerte de verdad!</p>
-                    <p>¡Siente hoy, canta hoy! ¡Es el nuevo concierto que vivirás!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. REPERTORIO Y PAQUETES TEMÁTICOS -->
+    <!-- 4. REPERTORIO Y PAQUETES TEMÁTICOS -->
     <section class="repertoire-section">
         <div class="container">
             <h2 class="section-title">Repertorio y Paquetes Temáticos</h2>
             <div class="repertoire-grid">
-                <!-- Serenata -->
                 <div class="repertoire-card">
                     <span class="repertoire-icon">🌙</span>
                     <h3>Serenata</h3>
@@ -913,7 +750,6 @@
                         <li>Dedicatoria personalizada</li>
                     </ul>
                 </div>
-                <!-- Serenata Cumpleaños -->
                 <div class="repertoire-card">
                     <span class="repertoire-icon">🎂</span>
                     <h3>Serenata Cumpleaños</h3>
@@ -924,7 +760,6 @@
                         <li>Ideal para sorpresas</li>
                     </ul>
                 </div>
-                <!-- Show de Media Hora -->
                 <div class="repertoire-card">
                     <span class="repertoire-icon">🎶</span>
                     <h3>Show de Media Hora</h3>
@@ -935,7 +770,6 @@
                         <li>Interacción con el público</li>
                     </ul>
                 </div>
-                <!-- Show de Una Hora -->
                 <div class="repertoire-card">
                     <span class="repertoire-icon">🌟</span>
                     <h3>Show de Una Hora</h3>
@@ -950,12 +784,28 @@
         </div>
     </section>
 
+    <!-- 5. GALERÍA DE EVENTOS (FOTO REAL + PLACEHOLDERS) -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Galería de Eventos</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="SERENATA_A_PROFESORA.png" alt="Ari Sophie en serenata a profesora">
+                </div>
+                <div class="gallery-item">📸<br>Foto 2</div>
+                <div class="gallery-item">📸<br>Foto 3</div>
+                <div class="gallery-item">📸<br>Foto 4</div>
+                <div class="gallery-item">📸<br>Foto 5</div>
+                <div class="gallery-item">📸<br>Foto 6</div>
+            </div>
+        </div>
+    </section>
+
     <!-- 6. PAQUETES Y TARIFAS -->
     <section class="pricing-section">
         <div class="container">
             <h2 class="section-title">Paquetes Oficiales</h2>
             <div class="pricing-grid">
-                <!-- Show Exprés -->
                 <div class="pricing-card">
                     <h3>Show Exprés</h3>
                     <div class="price">S/ 100</div>
@@ -969,7 +819,6 @@
                         * Lima Provincias y otras regiones: coordinar tarifa de movilidad.
                     </div>
                 </div>
-                <!-- Media Hora -->
                 <div class="pricing-card">
                     <h3>Media Hora de Show</h3>
                     <div class="price">S/ 150</div>
@@ -983,14 +832,13 @@
                         * Lima Provincias y otras regiones: coordinar tarifa de movilidad.
                     </div>
                 </div>
-                <!-- Una Hora -->
                 <div class="pricing-card">
                     <h3>Una Hora Completa</h3>
                     <div class="price">S/ 300</div>
                     <ul>
                         <li>Espectáculo estelar</li>
                         <li>Versatilidad total de principio a fin</li>
-                        <li>Repertorio completo (Mariachi, Huayno y Fiesta)</li>
+                        <li>Repertorio completo</li>
                     </ul>
                     <div class="small-note">
                         * Precio válido para Lima Metropolitana. Movilidad plana de S/ 50 se suma al total.<br>
@@ -1013,26 +861,7 @@
         </div>
     </section>
 
-    <!-- 8. GALERÍA DE EVENTOS (AHORA CON TU FOTO REAL) -->
-    <section class="gallery-section">
-        <div class="container">
-            <h2 class="section-title">Galería de Eventos</h2>
-            <div class="gallery-grid">
-                <!-- Foto real que subiste -->
-                <div class="gallery-item">
-                    <img src="SERENATA_A_PROFESORA.png" alt="Ari Sophie en serenata a profesora">
-                </div>
-                <!-- Placeholders para futuras fotos -->
-                <div class="gallery-item">📸<br>Foto 2</div>
-                <div class="gallery-item">📸<br>Foto 3</div>
-                <div class="gallery-item">📸<br>Foto 4</div>
-                <div class="gallery-item">📸<br>Foto 5</div>
-                <div class="gallery-item">📸<br>Foto 6</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. TARJETA VIRTUAL (NUEVA SECCIÓN) -->
+    <!-- 8. TARJETA VIRTUAL -->
     <section class="virtual-card-section">
         <div class="container">
             <h2 class="section-title">Tarjeta Virtual</h2>
@@ -1040,8 +869,6 @@
                 <h3>Ari Sophie</h3>
                 <p class="subtitle">Mariachi • Huayno • Ritmos Latinos</p>
                 
-                <!-- Código QR: genera el tuyo en qr-code-generator.com apuntando a https://arisophie.me -->
-                <!-- Por ahora usa un placeholder; reemplaza con tu QR real -->
                 <div class="qr-container">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://arisophie.me&color=f39c12&bgcolor=ffffff" alt="QR Ari Sophie">
                 </div>
@@ -1050,15 +877,12 @@
                 <a href="https://arisophie.me" class="web-link" target="_blank">arisophie.me</a>
 
                 <div class="card-actions">
-                    <!-- Botón WhatsApp -->
                     <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Vi%20su%20tarjeta%20virtual%20y%20quiero%20informaci%C3%B3n." class="card-btn btn-whatsapp" target="_blank">
                         📲 WhatsApp
                     </a>
-                    <!-- Botón Compartir (Web Share API) -->
                     <button onclick="sharePage()" class="card-btn btn-share">
                         🔗 Compartir
                     </button>
-                    <!-- Botón Guardar en favoritos (solo funciona en algunos navegadores) -->
                     <button onclick="addToFavorites()" class="card-btn btn-save">
                         ⭐ Guardar
                     </button>
@@ -1067,20 +891,18 @@
         </div>
     </section>
 
-    <!-- 10. FOOTER Y CTA FINAL -->
+    <!-- 9. FOOTER Y CTA FINAL -->
     <footer>
         <div class="container">
             <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20armar%20mi%20show%20por%20WhatsApp." class="cta-final" target="_blank">📲 Armar mi Show por WhatsApp</a>
-            <p class="footer-text">© 2026 Ari Sophie. Todos los derechos reservados. | Diseño profesional para artistas.</p>
+            <p class="footer-text">© 2026 Ari Sophie. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
     <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20coordinar%20un%20show." class="whatsapp-float" target="_blank" title="Reservar por WhatsApp">📲</a>
 
-    <!-- SCRIPT PARA COMPARTIR Y GUARDAR -->
     <script>
-        // Función para compartir la página
         function sharePage() {
             if (navigator.share) {
                 navigator.share({
@@ -1089,7 +911,6 @@
                     url: 'https://arisophie.me'
                 }).catch((error) => console.log('Error al compartir:', error));
             } else {
-                // Fallback: copiar al portapapeles
                 navigator.clipboard.writeText('https://arisophie.me').then(() => {
                     alert('¡Enlace copiado! Compártelo con quien quieras.');
                 }).catch(() => {
@@ -1098,18 +919,8 @@
             }
         }
 
-        // Función para intentar guardar en favoritos (solo algunos navegadores lo permiten)
         function addToFavorites() {
-            if (window.sidebar && window.sidebar.addPanel) {
-                // Firefox antiguo
-                window.sidebar.addPanel('Ari Sophie', 'https://arisophie.me', '');
-            } else if (window.external && ('AddFavorite' in window.external)) {
-                // IE
-                window.external.AddFavorite('https://arisophie.me', 'Ari Sophie');
-            } else {
-                // Chrome, Safari, Edge: mostrar instrucciones
-                alert('Para guardar esta página:\n\n📱 En móvil: toca el menú (⋮ o ⋯) y elige "Añadir a pantalla de inicio".\n\n💻 En PC: presiona Ctrl+D (Windows) o Cmd+D (Mac).');
-            }
+            alert('Para guardar esta página:\n\n📱 En móvil: toca el menú (⋮ o ⋯) y elige "Añadir a pantalla de inicio".\n\n💻 En PC: presiona Ctrl+D (Windows) o Cmd+D (Mac).');
         }
     </script>
 
