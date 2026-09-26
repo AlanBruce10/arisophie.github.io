@@ -78,18 +78,17 @@
             position: relative;
         }
 
-        /* --- NUEVO CONTENEDOR DE FOTO (ÓVALO VERTICAL PROFESIONAL) --- */
         .profile-img-container {
             width: 260px;
             height: 340px;
-            border-radius: 50% / 40%; /* Óvalo vertical elegante */
+            border-radius: 50% / 40%;
             overflow: hidden;
             border: 4px solid var(--gold);
             box-shadow: 0 0 35px rgba(243, 156, 18, 0.5);
             margin-bottom: 25px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            background-color: #1a1a2e; /* Fondo por si la imagen no carga */
+            background-color: #1a1a2e;
         }
 
         .profile-img-container:hover {
@@ -101,7 +100,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%; /* Ajusta la posición para que se vea la cabeza */
+            object-position: center 20%;
             display: block;
         }
 
@@ -155,7 +154,7 @@
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 15px;
@@ -187,7 +186,7 @@
             color: var(--gold);
         }
 
-        /* --- SECCIÓN BIOGRAFÍA --- */
+        /* --- SECCIÓN BIOGRAFÍA (MÁS HUMILDE) --- */
         .bio-section {
             padding: 80px 0;
             background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
@@ -210,7 +209,7 @@
             font-weight: 600;
         }
 
-        /* --- LETRA DE LA CANCIÓN (HIT DE ESCENARIO) --- */
+        /* --- LETRA DE LA CANCIÓN --- */
         .lyrics-section {
             padding: 60px 0;
             background-color: var(--bg-card);
@@ -252,7 +251,7 @@
             text-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
         }
 
-        /* --- REPERTORIO --- */
+        /* --- REPERTORIO Y PAQUETES TEMÁTICOS --- */
         .repertoire-section {
             padding: 80px 0;
             background-color: var(--bg-dark);
@@ -274,6 +273,9 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .repertoire-card::before {
@@ -315,6 +317,30 @@
         .repertoire-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .repertoire-details {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 15px;
+            text-align: left;
+        }
+
+        .repertoire-details li {
+            list-style: none;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .repertoire-details li::before {
+            content: '♪';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
         }
 
         /* --- PAQUETES Y TARIFAS --- */
@@ -655,13 +681,11 @@
     <!-- 1. HEADER & HERO SECTION -->
     <header>
         <div class="profile-img-container">
-            <!-- Reemplaza 'perfil.jpg' con tu imagen real -->
             <img src="perfil.jpg" alt="Ari Sophie - Mariachi y Huayno">
         </div>
         <h1>Ari Sophie</h1>
         <h2><span>Mariachi, Huayno y Ritmos Latinos</span> • Espectáculo Sentimental y Versátil</h2>
-        <!-- Enlace actualizado con número directo y mensaje predefinido -->
-        <a href="https://wa.me/51916489520?text=Hola%20Ari%20Sophie,%20quiero%20reservar%20un%20show%20para%20mi%20evento" class="cta-hero" target="_blank">📲 Reservar Fecha</a>
+        <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20coordinar%20un%20show%20para%20mi%20evento." class="cta-hero" target="_blank">📲 Reservar Fecha</a>
     </header>
 
     <!-- 2. SECCIÓN DE VIDEO PRINCIPAL -->
@@ -669,24 +693,23 @@
         <div class="container">
             <h2 class="video-title">Estreno Oficial: <span>Canta hoy, vive hoy</span></h2>
             <div class="video-wrapper">
-                <!-- Video de presentación (reemplazar luego por el videoclip oficial) -->
                 <iframe src="https://www.youtube.com/embed/EJtlZ6-Jft0" title="Ari Sophie - Presentación" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <!-- 3. SECCIÓN DE BIOGRAFÍA -->
+    <!-- 3. SECCIÓN DE BIOGRAFÍA (MÁS HUMILDE) -->
     <section class="bio-section">
         <div class="container">
             <h2 class="section-title">Sobre Ari Sophie</h2>
             <div class="bio-content">
-                <p>Con tan solo <strong>12 años</strong>, Ari Sophie se ha convertido en una de las promesas más versátiles del espectáculo peruano. Su amor por las raíces tradicionales de la música mexicana y andina la llevó a dominar el mariachi y el huayno con una madurez impresionante.</p>
-                <p>Pero su verdadero poder está en el escenario: transforma cada presentación con una energía arrolladora, sentimiento puro y una versatilidad total que la convierte en el <strong>alma de cualquier celebración</strong>, ya sea familiar o corporativa. No es solo una cantante, es una <strong>showwoman</strong> integral.</p>
+                <p>Ari Sophie es una niña de <strong>12 años</strong> que descubrió en la música una forma de expresar lo que siente. Le encanta el mariachi, el huayno y los ritmos latinos, y disfruta compartir ese cariño con cada persona que la escucha.</p>
+                <p>Cuando se sube al escenario, lo que más le importa es que la gente sonría, se emocione y se sienta parte del show. No pretende ser la mejor, solo dar lo mejor de sí en cada presentación, con respeto, puntualidad y mucho corazón. Si su música logra alegrar un momento especial, para ella ya es un éxito.</p>
             </div>
         </div>
     </section>
 
-    <!-- 4. LETRA DE LA CANCIÓN (HIT DE ESCENARIO) -->
+    <!-- 4. LETRA DE LA CANCIÓN -->
     <section class="lyrics-section">
         <div class="container">
             <h2 class="section-title">Hit de Escenario</h2>
@@ -720,25 +743,54 @@
         </div>
     </section>
 
-    <!-- 5. REPERTORIO INTERACTIVO -->
+    <!-- 5. REPERTORIO Y PAQUETES TEMÁTICOS -->
     <section class="repertoire-section">
         <div class="container">
-            <h2 class="section-title">Lo que Canta</h2>
+            <h2 class="section-title">Repertorio y Paquetes Temáticos</h2>
             <div class="repertoire-grid">
+                <!-- Serenata -->
                 <div class="repertoire-card">
-                    <span class="repertoire-icon">🎺</span>
-                    <h3>Mariachi</h3>
-                    <p>Rancheras sentimentales y clásicos emotivos que tocan el corazón. La esencia tradicional mexicana con la fuerza de una joven promesa.</p>
+                    <span class="repertoire-icon">🌙</span>
+                    <h3>Serenata</h3>
+                    <p>Un momento íntimo para sorprender a esa persona especial.</p>
+                    <ul class="repertoire-details">
+                        <li>2 a 3 canciones</li>
+                        <li>Mariachi o balada</li>
+                        <li>Dedicatoria personalizada</li>
+                    </ul>
                 </div>
+                <!-- Serenata Cumpleaños -->
                 <div class="repertoire-card">
-                    <span class="repertoire-icon">🏔️</span>
-                    <h3>Huayno</h3>
-                    <p>Folklore andino tradicional con fuerza y autenticidad. El sentimiento de nuestras raíces interpretado con pasión y respeto.</p>
+                    <span class="repertoire-icon">🎂</span>
+                    <h3>Serenata Cumpleaños</h3>
+                    <p>Celebra un año más con música en vivo y mucho sentimiento.</p>
+                    <ul class="repertoire-details">
+                        <li>3 a 4 canciones</li>
+                        <li>Incluye Las Mañanitas</li>
+                        <li>Ideal para sorpresas</li>
+                    </ul>
                 </div>
+                <!-- Show de Media Hora -->
                 <div class="repertoire-card">
-                    <span class="repertoire-icon">🎉</span>
-                    <h3>Fiesta</h3>
-                    <p>Merengues rápidos, pop latino y ritmos bailables. La energía que enciende cualquier celebración y pone a todos a bailar.</p>
+                    <span class="repertoire-icon">🎶</span>
+                    <h3>Show de Media Hora</h3>
+                    <p>Un bloque lleno de emoción para compartir en familia.</p>
+                    <ul class="repertoire-details">
+                        <li>6 a 8 canciones</li>
+                        <li>Mezcla de géneros</li>
+                        <li>Interacción con el público</li>
+                    </ul>
+                </div>
+                <!-- Show de Una Hora -->
+                <div class="repertoire-card">
+                    <span class="repertoire-icon">🌟</span>
+                    <h3>Show de Una Hora</h3>
+                    <p>El espectáculo completo, con versatilidad de principio a fin.</p>
+                    <ul class="repertoire-details">
+                        <li>12 a 15 canciones</li>
+                        <li>Mariachi, huayno y fiesta</li>
+                        <li>Repertorio a elección</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -807,12 +859,11 @@
         </div>
     </section>
 
-    <!-- 8. GALERÍA DE EVENTOS (ESPACIOS PARA FOTOS) -->
+    <!-- 8. GALERÍA DE EVENTOS -->
     <section class="gallery-section">
         <div class="container">
             <h2 class="section-title">Galería de Eventos</h2>
             <div class="gallery-grid">
-                <!-- Reemplaza estos divs con etiquetas <img src="tu-foto.jpg" alt="Evento"> -->
                 <div class="gallery-item">📸<br>Foto 1</div>
                 <div class="gallery-item">📸<br>Foto 2</div>
                 <div class="gallery-item">📸<br>Foto 3</div>
@@ -828,7 +879,6 @@
         <div class="container">
             <h2 class="section-title">Sígueme</h2>
             <div class="social-links">
-                <!-- Reemplaza los '#' con tus enlaces reales -->
                 <a href="#" class="social-btn" title="Spotify" target="_blank">🎵</a>
                 <a href="#" class="social-btn" title="TikTok" target="_blank">🎤</a>
                 <a href="#" class="social-btn" title="YouTube Music" target="_blank">▶️</a>
@@ -840,15 +890,13 @@
     <!-- 10. FOOTER Y CTA FINAL -->
     <footer>
         <div class="container">
-            <!-- Enlace actualizado con número directo y mensaje predefinido -->
-            <a href="https://wa.me/51916489520?text=Hola%20Ari%20Sophie,%20quiero%20armar%20mi%20show%20por%20WhatsApp" class="cta-final" target="_blank">📲 Armar mi Show por WhatsApp</a>
+            <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20armar%20mi%20show%20por%20WhatsApp." class="cta-final" target="_blank">📲 Armar mi Show por WhatsApp</a>
             <p class="footer-text">© 2026 Ari Sophie. Todos los derechos reservados. | Diseño profesional para artistas.</p>
         </div>
     </footer>
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <!-- Enlace actualizado con número directo y mensaje predefinido -->
-    <a href="https://wa.me/51916489520?text=Hola%20Ari%20Sophie,%20quiero%20reservar%20un%20show" class="whatsapp-float" target="_blank" title="Reservar por WhatsApp">📲</a>
+    <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20coordinar%20un%20show." class="whatsapp-float" target="_blank" title="Reservar por WhatsApp">📲</a>
 
 </body>
 </html>
