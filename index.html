@@ -33,7 +33,6 @@
             scroll-behavior: smooth;
         }
 
-        /* --- UTILIDADES --- */
         .container {
             width: 90%;
             max-width: 1100px;
@@ -61,7 +60,19 @@
             border-radius: 2px;
         }
 
-        /* --- HEADER & HERO (SIN BOTÓN DE RESERVA) --- */
+        /* --- ANIMACIONES AL SCROLL --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER & HERO --- */
         header {
             min-height: 100vh;
             display: flex;
@@ -84,6 +95,7 @@
             margin-bottom: 25px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background-color: #1a1a2e;
+            cursor: pointer;
         }
 
         .profile-img-container:hover {
@@ -122,7 +134,6 @@
             font-weight: 600;
         }
 
-        /* Botón de "Ver Show" que baja al video */
         .cta-hero {
             display: inline-flex;
             align-items: center;
@@ -145,7 +156,7 @@
             box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
         }
 
-        /* --- SECCIÓN VIDEO (PRIMERA SECCIÓN DESPUÉS DEL HERO) --- */
+        /* --- SECCIÓN VIDEO --- */
         .video-section {
             padding: 80px 0;
             background-color: var(--bg-card);
@@ -208,7 +219,80 @@
             font-weight: 600;
         }
 
-        /* --- REPERTORIO Y PAQUETES TEMÁTICOS --- */
+        /* --- ESTADÍSTICAS / TRAYECTORIA --- */
+        .stats-section {
+            padding: 60px 0;
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(243, 156, 18, 0.1);
+            border-bottom: 1px solid rgba(243, 156, 18, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- TESTIMONIO --- */
+        .testimonial-section {
+            padding: 60px 0;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+        }
+
+        .testimonial-box {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(15, 15, 26, 0.6);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+            position: relative;
+        }
+
+        .testimonial-box::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(243, 156, 18, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-box p {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #ddd;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-box .author {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- REPERTORIO --- */
         .repertoire-section {
             padding: 80px 0;
             background-color: var(--bg-dark);
@@ -300,6 +384,53 @@
             left: 0;
         }
 
+        /* --- GALERÍA --- */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--bg-dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+            transition: all 0.3s ease;
+            background-color: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
         /* --- PAQUETES Y TARIFAS --- */
         .pricing-section {
             padding: 80px 0;
@@ -382,7 +513,7 @@
             line-height: 1.4;
         }
 
-        /* --- POLÍTICA DE MOVILIDAD --- */
+        /* --- MOVILIDAD --- */
         .mobility-section {
             padding: 60px 0;
             background-color: var(--bg-dark);
@@ -419,52 +550,6 @@
             color: #888;
             font-style: italic;
             margin-top: 10px;
-        }
-
-        /* --- GALERÍA DE EVENTOS --- */
-        .gallery-section {
-            padding: 80px 0;
-            background-color: var(--bg-dark);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            aspect-ratio: 1 / 1;
-            border: 1px solid rgba(243, 156, 18, 0.2);
-            transition: all 0.3s ease;
-            background-color: #1a1a2e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover {
-            border-color: var(--gold);
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
         }
 
         /* --- TARJETA VIRTUAL --- */
@@ -607,9 +692,9 @@
             transform: translateY(-3px);
         }
 
-        /* --- FOOTER Y CTA FINAL --- */
+        /* --- FOOTER --- */
         footer {
-            padding: 60px 20px;
+            padding: 60px 20px 30px;
             text-align: center;
             background-color: #0a0a12;
             border-top: 1px solid rgba(243, 156, 18, 0.1);
@@ -640,6 +725,15 @@
         .footer-text {
             color: var(--text-muted);
             font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-policy {
+            color: #666;
+            font-size: 0.8rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
         }
 
         /* --- BOTÓN FLOTANTE WHATSAPP --- */
@@ -674,6 +768,90 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
+        /* --- LIGHTBOX (VISOR DE IMÁGENES) --- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 10px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 0 50px rgba(243, 156, 18, 0.5);
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--gold);
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            color: #fff;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            background: var(--gold);
+            color: #0f0f1a;
+        }
+
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+
+        .lightbox-caption {
+            color: var(--text-muted);
+            margin-top: 20px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
@@ -692,6 +870,9 @@
             .virtual-card .qr-container img { width: 150px; height: 150px; }
             .card-actions { flex-direction: column; }
             .card-btn { width: 100%; justify-content: center; }
+            .stat-item h3 { font-size: 2rem; }
+            .lightbox-nav { font-size: 2rem; padding: 5px 15px; }
+            .lightbox-close { font-size: 2.5rem; top: 15px; right: 20px; }
         }
 
         @media (max-width: 480px) {
@@ -703,44 +884,78 @@
 </head>
 <body>
 
-    <!-- 1. HEADER & HERO (SIN BOTÓN DE RESERVA, SOLO "VER SHOW") -->
+    <!-- 1. HEADER & HERO -->
     <header>
-        <div class="profile-img-container">
+        <div class="profile-img-container" onclick="openLightbox('perfil.jpg', 'Ari Sophie')">
             <img src="perfil.jpg" alt="Ari Sophie - Mariachi y Huayno">
         </div>
         <h1>Ari Sophie</h1>
         <h2><span>Mariachi, Huayno y Ritmos Latinos</span> • Espectáculo Sentimental y Versátil</h2>
-        <!-- Botón que baja al video, en lugar de reservar -->
         <a href="#video" class="cta-hero">▶ Ver Show</a>
     </header>
 
-    <!-- 2. SECCIÓN DE VIDEO PRINCIPAL (PRIMERA COSA QUE VE EL USUARIO) -->
+    <!-- 2. VIDEO PRINCIPAL -->
     <section class="video-section" id="video">
         <div class="container">
-            <h2 class="video-title">Estreno Oficial: <span>Canta hoy, vive hoy</span></h2>
-            <div class="video-wrapper">
+            <h2 class="video-title fade-in">Estreno Oficial: <span>Canta hoy, vive hoy</span></h2>
+            <div class="video-wrapper fade-in">
                 <iframe src="https://www.youtube.com/embed/EJtlZ6-Jft0" title="Ari Sophie - Presentación" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <!-- 3. SECCIÓN DE BIOGRAFÍA -->
+    <!-- 3. BIOGRAFÍA -->
     <section class="bio-section">
         <div class="container">
-            <h2 class="section-title">Sobre Ari Sophie</h2>
-            <div class="bio-content">
+            <h2 class="section-title fade-in">Sobre Ari Sophie</h2>
+            <div class="bio-content fade-in">
                 <p>Ari Sophie es una niña de <strong>12 años</strong> que descubrió en la música una forma de expresar lo que siente. Le encanta el mariachi, el huayno y los ritmos latinos, y disfruta compartir ese cariño con cada persona que la escucha.</p>
                 <p>Cuando se sube al escenario, lo que más le importa es que la gente sonría, se emocione y se sienta parte del show. No pretende ser la mejor, solo dar lo mejor de sí en cada presentación, con respeto, puntualidad y mucho corazón.</p>
             </div>
         </div>
     </section>
 
-    <!-- 4. REPERTORIO Y PAQUETES TEMÁTICOS -->
+    <!-- 4. ESTADÍSTICAS / TRAYECTORIA -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid fade-in">
+                <div class="stat-item">
+                    <h3>+50</h3>
+                    <p>Eventos realizados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>Géneros dominados</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Puntualidad</p>
+                </div>
+                <div class="stat-item">
+                    <h3>+200</h3>
+                    <p>Personas felices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TESTIMONIO -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Lo que dicen</h2>
+            <div class="testimonial-box fade-in">
+                <p>Contratamos a Ari Sophie para el cumpleaños de mi mamá y fue lo mejor de la noche. No solo canta hermoso, sino que transmite una energía y un cariño que contagia a todos. La recomiendo totalmente.</p>
+                <p class="author">— Familia R., Miraflores</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. REPERTORIO -->
     <section class="repertoire-section">
         <div class="container">
-            <h2 class="section-title">Repertorio y Paquetes Temáticos</h2>
+            <h2 class="section-title fade-in">Repertorio y Paquetes Temáticos</h2>
             <div class="repertoire-grid">
-                <div class="repertoire-card">
+                <div class="repertoire-card fade-in">
                     <span class="repertoire-icon">🌙</span>
                     <h3>Serenata</h3>
                     <p>Un momento íntimo para sorprender a esa persona especial.</p>
@@ -750,7 +965,7 @@
                         <li>Dedicatoria personalizada</li>
                     </ul>
                 </div>
-                <div class="repertoire-card">
+                <div class="repertoire-card fade-in">
                     <span class="repertoire-icon">🎂</span>
                     <h3>Serenata Cumpleaños</h3>
                     <p>Celebra un año más con música en vivo y mucho sentimiento.</p>
@@ -760,7 +975,7 @@
                         <li>Ideal para sorpresas</li>
                     </ul>
                 </div>
-                <div class="repertoire-card">
+                <div class="repertoire-card fade-in">
                     <span class="repertoire-icon">🎶</span>
                     <h3>Show de Media Hora</h3>
                     <p>Un bloque lleno de emoción para compartir en familia.</p>
@@ -770,7 +985,7 @@
                         <li>Interacción con el público</li>
                     </ul>
                 </div>
-                <div class="repertoire-card">
+                <div class="repertoire-card fade-in">
                     <span class="repertoire-icon">🌟</span>
                     <h3>Show de Una Hora</h3>
                     <p>El espectáculo completo, con versatilidad de principio a fin.</p>
@@ -784,12 +999,12 @@
         </div>
     </section>
 
-    <!-- 5. GALERÍA DE EVENTOS (FOTO REAL + PLACEHOLDERS) -->
+    <!-- 7. GALERÍA DE EVENTOS (CON LIGHTBOX) -->
     <section class="gallery-section">
         <div class="container">
-            <h2 class="section-title">Galería de Eventos</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
+            <h2 class="section-title fade-in">Galería de Eventos</h2>
+            <div class="gallery-grid fade-in">
+                <div class="gallery-item" onclick="openLightbox('SERENATA_A_PROFESORA.png', 'Serenata a profesora')">
                     <img src="SERENATA_A_PROFESORA.png" alt="Ari Sophie en serenata a profesora">
                 </div>
                 <div class="gallery-item">📸<br>Foto 2</div>
@@ -801,12 +1016,12 @@
         </div>
     </section>
 
-    <!-- 6. PAQUETES Y TARIFAS -->
+    <!-- 8. PAQUETES Y TARIFAS -->
     <section class="pricing-section">
         <div class="container">
-            <h2 class="section-title">Paquetes Oficiales</h2>
+            <h2 class="section-title fade-in">Paquetes Oficiales</h2>
             <div class="pricing-grid">
-                <div class="pricing-card">
+                <div class="pricing-card fade-in">
                     <h3>Show Exprés</h3>
                     <div class="price">S/ 100</div>
                     <ul>
@@ -819,7 +1034,7 @@
                         * Lima Provincias y otras regiones: coordinar tarifa de movilidad.
                     </div>
                 </div>
-                <div class="pricing-card">
+                <div class="pricing-card fade-in">
                     <h3>Media Hora de Show</h3>
                     <div class="price">S/ 150</div>
                     <ul>
@@ -832,7 +1047,7 @@
                         * Lima Provincias y otras regiones: coordinar tarifa de movilidad.
                     </div>
                 </div>
-                <div class="pricing-card">
+                <div class="pricing-card fade-in">
                     <h3>Una Hora Completa</h3>
                     <div class="price">S/ 300</div>
                     <ul>
@@ -849,10 +1064,10 @@
         </div>
     </section>
 
-    <!-- 7. POLÍTICA DE MOVILIDAD -->
+    <!-- 9. MOVILIDAD -->
     <section class="mobility-section">
         <div class="container">
-            <div class="mobility-box">
+            <div class="mobility-box fade-in">
                 <h3>🚐 Política de Movilidad</h3>
                 <p>Las tarifas mostradas aplican para <strong>Lima Metropolitana</strong>. Se añade una <strong>tarifa plana de movilidad de S/ 50</strong> por transporte privado certificado.</p>
                 <p>Para <strong>Lima Provincias y otras regiones</strong>, la tarifa de movilidad se coordina directamente según la ubicación.</p>
@@ -861,11 +1076,11 @@
         </div>
     </section>
 
-    <!-- 8. TARJETA VIRTUAL -->
+    <!-- 10. TARJETA VIRTUAL -->
     <section class="virtual-card-section">
         <div class="container">
-            <h2 class="section-title">Tarjeta Virtual</h2>
-            <div class="virtual-card">
+            <h2 class="section-title fade-in">Tarjeta Virtual</h2>
+            <div class="virtual-card fade-in">
                 <h3>Ari Sophie</h3>
                 <p class="subtitle">Mariachi • Huayno • Ritmos Latinos</p>
                 
@@ -891,18 +1106,80 @@
         </div>
     </section>
 
-    <!-- 9. FOOTER Y CTA FINAL -->
+    <!-- 11. FOOTER -->
     <footer>
         <div class="container">
             <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20armar%20mi%20show%20por%20WhatsApp." class="cta-final" target="_blank">📲 Armar mi Show por WhatsApp</a>
             <p class="footer-text">© 2026 Ari Sophie. Todos los derechos reservados.</p>
+            <p class="footer-policy">Política de reserva: se solicita una seña del 50% para confirmar la fecha. Cancelaciones con menos de 48 horas de anticipación no son reembolsables. Coordinamos todo por WhatsApp.</p>
         </div>
     </footer>
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
     <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20coordinar%20un%20show." class="whatsapp-float" target="_blank" title="Reservar por WhatsApp">📲</a>
 
+    <!-- LIGHTBOX (VISOR DE IMÁGENES) -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">‹</button>
+        <img id="lightbox-img" src="" alt="Imagen ampliada">
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">›</button>
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+
     <script>
+        // ===== LIGHTBOX =====
+        let currentImageIndex = 0;
+        const images = [
+            { src: 'perfil.jpg', caption: 'Ari Sophie' },
+            { src: 'SERENATA_A_PROFESORA.png', caption: 'Serenata a profesora' }
+            // Agrega aquí más imágenes cuando las tengas
+        ];
+
+        function openLightbox(src, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            
+            // Buscar el índice de la imagen
+            currentImageIndex = images.findIndex(i => i.src === src);
+            if (currentImageIndex === -1) currentImageIndex = 0;
+            
+            img.src = src;
+            cap.textContent = caption || '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Bloquear scroll
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+            if (currentImageIndex >= images.length) currentImageIndex = 0;
+            
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            img.src = images[currentImageIndex].src;
+            cap.textContent = images[currentImageIndex].caption;
+        }
+
+        // Cerrar lightbox con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeImage(-1);
+            if (e.key === 'ArrowRight') changeImage(1);
+        });
+
+        // Cerrar al hacer clic fuera de la imagen
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') closeLightbox();
+        });
+
+        // ===== COMPARTIR =====
         function sharePage() {
             if (navigator.share) {
                 navigator.share({
@@ -922,6 +1199,17 @@
         function addToFavorites() {
             alert('Para guardar esta página:\n\n📱 En móvil: toca el menú (⋮ o ⋯) y elige "Añadir a pantalla de inicio".\n\n💻 En PC: presiona Ctrl+D (Windows) o Cmd+D (Mac).');
         }
+
+        // ===== ANIMACIONES AL SCROLL =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 
 </body>
