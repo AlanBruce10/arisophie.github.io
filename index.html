@@ -3,79 +3,811 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ari Sophie | Show Musical Profesional</title>
+    <meta name="description" content="Ari Sophie - Mariachi, Huayno y Ritmos Latinos. Showwoman versátil en Lima. Espectáculo sentimental y profesional para eventos privados y corporativos.">
+    <title>Ari Sophie | Mariachi, Huayno y Ritmos Latinos</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #0f0f1a; color: #fff; text-align: center; padding: 20px; margin: 0; }
-        .container { max-width: 600px; margin: 40px auto; background: #1a1a2e; padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.6); }
-        h1 { color: #f39c12; margin-bottom: 5px; font-size: 32px; letter-spacing: 1px; }
-        .subtitle { color: #bdc3c7; font-style: italic; margin-bottom: 25px; font-size: 16px; }
-        
-        /* Círculo para colocar la foto profesional */
-        .profile-img-container { margin: 20px auto 30px auto; width: 180px; height: 180px; border-radius: 50%; border: 4px solid #f39c12; overflow: hidden; background: #222240; box-shadow: 0 4px 15px rgba(243,156,18,0.3); display: flex; align-items: center; justify-content: center; }
-        .img-placeholder { font-size: 12px; color: #7f8c8d; padding: 10px; font-style: italic; }
+        /* --- RESET Y VARIABLES GLOBALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        h2 { color: #fff; font-size: 20px; border-bottom: 2px solid #34495e; padding-bottom: 10px; margin-top: 30px; }
-        .song-box { background: #222240; padding: 20px; border-radius: 10px; border: 1px dashed #f39c12; margin-bottom: 25px; text-align: left; }
-        .song-box h3 { margin: 0 0 10px 0; color: #f39c12; font-size: 16px; }
-        .song-box p { margin: 4px 0; font-size: 14px; color: #ecf0f1; font-family: monospace; }
-        .price-card { background: #1f1f3a; padding: 20px; margin: 15px 0; border-radius: 10px; border-left: 5px solid #f39c12; text-align: left; position: relative; }
-        .price-card h3 { margin: 0; color: #fff; font-size: 18px; }
-        .price-card p { margin: 8px 0 0 0; color: #a4b0be; font-size: 14px; line-height: 1.4; }
-        .price { float: right; color: #f39c12; font-weight: bold; font-size: 22px; margin-top: -2px; }
-        
-        .btn-whatsapp { display: inline-block; background-color: #25d366; color: white; padding: 16px 35px; text-decoration: none; font-weight: bold; border-radius: 30px; margin-top: 30px; font-size: 16px; box-shadow: 0 6px 20px rgba(37,211,102,0.4); transition: 0.3s; }
-        .btn-whatsapp:hover { background-color: #20ba56; transform: scale(1.03); }
-        
-        .coverage { margin-top: 25px; font-size: 13px; color: #95a5a6; line-height: 1.5; background: #151525; padding: 15px; border-radius: 8px; }
+        :root {
+            --bg-dark: #0f0f1a;
+            --bg-card: #1a1a2e;
+            --gold: #f39c12;
+            --gold-light: #f1c40f;
+            --text-light: #eaeaea;
+            --text-muted: #b0b0c0;
+            --whatsapp: #25d366;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- UTILIDADES --- */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .gold-text {
+            color: var(--gold);
+        }
+
+        /* --- HEADER & HERO --- */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at top, #1a1a2e 0%, #0f0f1a 100%);
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .profile-img-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--gold);
+            box-shadow: 0 0 30px rgba(243, 156, 18, 0.4);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img-container:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        header h2 span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .cta-hero {
+            display: inline-block;
+            background-color: var(--whatsapp);
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .cta-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            background-color: #20b859;
+        }
+
+        /* --- SECCIÓN VIDEO --- */
+        .video-section {
+            padding: 80px 0;
+            background-color: var(--bg-card);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 2px solid rgba(243, 156, 18, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #fff;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .video-title span {
+            color: var(--gold);
+        }
+
+        /* --- SECCIÓN BIOGRAFÍA --- */
+        .bio-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+        }
+
+        .bio-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .bio-content p {
+            margin-bottom: 20px;
+        }
+
+        .bio-content strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* --- LETRA DE LA CANCIÓN (HIT DE ESCENARIO) --- */
+        .lyrics-section {
+            padding: 60px 0;
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(243, 156, 18, 0.1);
+            border-bottom: 1px solid rgba(243, 156, 18, 0.1);
+        }
+
+        .lyrics-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(15, 15, 26, 0.6);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .lyrics-container h3 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .lyrics-container p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .lyrics-container .chorus {
+            color: var(--gold-light);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 25px 0;
+            text-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
+        }
+
+        /* --- REPERTORIO --- */
+        .repertoire-section {
+            padding: 80px 0;
+            background-color: var(--bg-dark);
+        }
+
+        .repertoire-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .repertoire-card {
+            background-color: var(--bg-card);
+            border-radius: 15px;
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid rgba(243, 156, 18, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .repertoire-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .repertoire-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border-color: rgba(243, 156, 18, 0.4);
+        }
+
+        .repertoire-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .repertoire-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .repertoire-card h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .repertoire-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- PAQUETES Y TARIFAS --- */
+        .pricing-section {
+            padding: 80px 0;
+            background-color: var(--bg-card);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: linear-gradient(145deg, #1a1a2e, #151525);
+            border-radius: 15px;
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.03);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.15);
+        }
+
+        .pricing-card h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin: 15px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 20px 0 30px;
+            text-align: left;
+            padding: 0 10px;
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .pricing-card ul li::before {
+            content: '✓';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* --- POLÍTICA DE MOVILIDAD --- */
+        .mobility-section {
+            padding: 60px 0;
+            background-color: var(--bg-dark);
+        }
+
+        .mobility-box {
+            background: rgba(243, 156, 18, 0.05);
+            border: 2px dashed rgba(243, 156, 18, 0.4);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mobility-box h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .mobility-box p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        .mobility-box strong {
+            color: #fff;
+        }
+
+        /* --- GALERÍA DE EVENTOS --- */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--bg-dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1;
+            border: 1px solid rgba(243, 156, 18, 0.2);
+            transition: all 0.3s ease;
+            background-color: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* --- REDES SOCIALES --- */
+        .social-section {
+            padding: 60px 0;
+            background-color: var(--bg-card);
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .social-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(243, 156, 18, 0.3);
+        }
+
+        .social-btn:hover {
+            background-color: var(--gold);
+            color: #0f0f1a;
+            transform: translateY(-5px) scale(1.1);
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        /* --- FOOTER Y CTA FINAL --- */
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #0a0a12;
+            border-top: 1px solid rgba(243, 156, 18, 0.1);
+        }
+
+        .cta-final {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--whatsapp);
+            color: #fff;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            margin-bottom: 30px;
+        }
+
+        .cta-final:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            background-color: #20b859;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-text a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* --- BOTÓN FLOTANTE WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20b859;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            header h2 {
+                font-size: 1rem;
+            }
+            .profile-img-container {
+                width: 150px;
+                height: 150px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .video-title {
+                font-size: 1.3rem;
+            }
+            .pricing-card {
+                padding: 25px 20px;
+            }
+            .price {
+                font-size: 2.2rem;
+            }
+            .cta-final {
+                font-size: 1rem;
+                padding: 15px 25px;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .social-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Ari Sophie</h1>
-        <div class="subtitle">Mariachi, Huayno y Ritmos Latinos • Espectáculo Sentimental y Versátil</div>
-        
+
+    <!-- 1. HEADER & HERO SECTION -->
+    <header>
         <div class="profile-img-container">
-            <div class="img-placeholder">Espacio para la foto con traje de mariachi e IA</div>
+            <!-- Reemplaza 'perfil.jpg' con tu imagen real -->
+            <img src="perfil.jpg" alt="Ari Sophie - Mariachi y Huayno">
         </div>
+        <h1>Ari Sophie</h1>
+        <h2><span>Mariachi, Huayno y Ritmos Latinos</span> • Espectáculo Sentimental y Versátil</h2>
+        <a href="https://whatsapp.com" class="cta-hero" target="_blank">📲 Reservar Fecha</a>
+    </header>
 
-        <div class="song-box">
-            <h3>🎵 Canción Oficial en Lanzamiento</h3>
-            <p><strong>"Canta hoy, vive hoy"</strong></p>
-            <p>• Este es un nuevo show</p>
-            <p>• Mariachi, huayno y todo ritmo</p>
-            <p>• ¡Es el nuevo concierto que vivirás!</p>
+    <!-- 2. SECCIÓN DE VIDEO PRINCIPAL -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="video-title">Estreno Oficial: <span>Canta hoy, vive hoy</span></h2>
+            <div class="video-wrapper">
+                <!-- Reemplaza el ID 'dQw4w9WgXcQ' con el ID de tu video oficial -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Ari Sophie - Canta hoy, vive hoy (Video Oficial)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
+    </section>
 
-        <h2>Paquetes y Tarifas Oficiales</h2>
-        
-        <div class="price-card">
-            <span class="price">S/ 150</span>
-            <h3>Show Exprés (1 o 2 Canciones)</h3>
-            <p>Ideal para dedicatorias emotivas, sorpresas rápidas o momentos clave del evento.</p>
+    <!-- 3. SECCIÓN DE BIOGRAFÍA -->
+    <section class="bio-section">
+        <div class="container">
+            <h2 class="section-title">Sobre Ari Sophie</h2>
+            <div class="bio-content">
+                <p>Con tan solo <strong>12 años</strong>, Ari Sophie se ha convertido en una de las promesas más versátiles del espectáculo peruano. Su amor por las raíces tradicionales de la música mexicana y andina la llevó a dominar el mariachi y el huayno con una madurez impresionante.</p>
+                <p>Pero su verdadero poder está en el escenario: transforma cada presentación con una energía arrolladora, sentimiento puro y una versatilidad total que la convierte en el <strong>alma de cualquier celebración</strong>, ya sea familiar o corporativa. No es solo una cantante, es una <strong>showwoman</strong> integral.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="price-card">
-            <span class="price">S/ 200</span>
-            <h3>Media Hora de Show</h3>
-            <p>Perfecto para reuniones familiares de formato mediano y bloques llenos de sentimiento.</p>
+    <!-- 4. LETRA DE LA CANCIÓN (HIT DE ESCENARIO) -->
+    <section class="lyrics-section">
+        <div class="container">
+            <h2 class="section-title">Hit de Escenario</h2>
+            <div class="lyrics-container">
+                <h3>🎤 Canta hoy, vive hoy</h3>
+                <p><em>(Versión Concierto y Sentimiento)</em></p>
+                
+                <p style="margin-top: 20px;"><strong>Primera estrofa</strong></p>
+                <p>Este es un nuevo show</p>
+                <p>que vamos a cantar</p>
+                <p>y es hermoso</p>
+                <p>un canto que es muy profundo</p>
+                <p>si vibras junto a mi serás feliz</p>
+
+                <div class="chorus">
+                    <p>¡Canta hoy, vive hoy! ¡Que el canto suene fuerte de verdad!</p>
+                    <p>¡Siente hoy, canta hoy! ¡Es el nuevo concierto que vivirás!</p>
+                </div>
+
+                <p><strong>Segunda estrofa</strong></p>
+                <p>Mi traje va a brillar</p>
+                <p>Cuando entre a cantar</p>
+                <p>Mariachi, huayno y todo ritmo</p>
+                <p>con este show más alma te será</p>
+
+                <div class="chorus">
+                    <p>¡Canta hoy, vive hoy! ¡Que el canto suene fuerte de verdad!</p>
+                    <p>¡Siente hoy, canta hoy! ¡Es el nuevo concierto que vivirás!</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="price-card">
-            <span class="price">S/ 350</span>
-            <h3>Una Hora Completa de Show</h3>
-            <p>Espectáculo estelar con amplio repertorio. Versatilidad total para levantar la fiesta de principio a fin.</p>
+    <!-- 5. REPERTORIO INTERACTIVO -->
+    <section class="repertoire-section">
+        <div class="container">
+            <h2 class="section-title">Lo que Canta</h2>
+            <div class="repertoire-grid">
+                <div class="repertoire-card">
+                    <span class="repertoire-icon">🎺</span>
+                    <h3>Mariachi</h3>
+                    <p>Rancheras sentimentales y clásicos emotivos que tocan el corazón. La esencia tradicional mexicana con la fuerza de una joven promesa.</p>
+                </div>
+                <div class="repertoire-card">
+                    <span class="repertoire-icon">🏔️</span>
+                    <h3>Huayno</h3>
+                    <p>Folklore andino tradicional con fuerza y autenticidad. El sentimiento de nuestras raíces interpretado con pasión y respeto.</p>
+                </div>
+                <div class="repertoire-card">
+                    <span class="repertoire-icon">🎉</span>
+                    <h3>Fiesta</h3>
+                    <p>Merengues rápidos, pop latino y ritmos bailables. La energía que enciende cualquier celebración y pone a todos a bailar.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="coverage">
-            🚗 <strong>Política de Traslado y Cobertura Segura:</strong><br>
-            Los precios mostrados arriba ya incluyen una tarifa plana de movilidad de <strong>S/ 50</strong> válida para todo Lima Metropolitana.<br>
-            <em>(Para contratos en Lima Provincias la movilidad fija es de S/ 100 • Resto del país previa coordinación).</em>
+    <!-- 6. PAQUETES Y TARIFAS -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Paquetes Oficiales</h2>
+            <div class="pricing-grid">
+                <!-- Show Exprés -->
+                <div class="pricing-card">
+                    <h3>Show Exprés</h3>
+                    <div class="price">S/ 150</div>
+                    <ul>
+                        <li>1 o 2 Canciones</li>
+                        <li>Incluye dedicatorias emotivas</li>
+                        <li>Ideal para sorpresas rápidas</li>
+                    </ul>
+                </div>
+                <!-- Media Hora -->
+                <div class="pricing-card">
+                    <h3>Media Hora de Show</h3>
+                    <div class="price">S/ 200</div>
+                    <ul>
+                        <li>Perfecto para momentos familiares</li>
+                        <li>Bloques llenos de sentimiento</li>
+                        <li>Interacción con el público</li>
+                    </ul>
+                </div>
+                <!-- Una Hora -->
+                <div class="pricing-card">
+                    <h3>Una Hora Completa</h3>
+                    <div class="price">S/ 350</div>
+                    <ul>
+                        <li>Espectáculo estelar</li>
+                        <li>Versatilidad total de principio a fin</li>
+                        <li>Repertorio completo (Mariachi, Huayno y Fiesta)</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- ENLACE DIRECTO CORREGIDO AL CELULAR DE TU ESPOSA -->
-        <a href="https://whatsapp.com:" class="btn-whatsapp" target="_blank">
-            📲 Armar mi Show por WhatsApp
-        </a>
-    </div>
+    <!-- 7. POLÍTICA DE MOVILIDAD -->
+    <section class="mobility-section">
+        <div class="container">
+            <div class="mobility-box">
+                <h3>🚐 Política de Movilidad Transparente</h3>
+                <p>Las tarifas ya incluyen una <strong>movilidad plana de S/ 50</strong> para todo Lima Metropolitana.</p>
+                <p>Para <strong>Lima Provincias</strong>, la movilidad es de <strong>S/ 100</strong>.</p>
+                <p>Garantizamos transporte privado certificado, cuidando la puntualidad y el vestuario profesional en cada presentación.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. GALERÍA DE EVENTOS (ESPACIOS PARA FOTOS) -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Galería de Eventos</h2>
+            <div class="gallery-grid">
+                <!-- Reemplaza estos divs con etiquetas <img src="tu-foto.jpg" alt="Evento"> -->
+                <div class="gallery-item">📸<br>Foto 1</div>
+                <div class="gallery-item">📸<br>Foto 2</div>
+                <div class="gallery-item">📸<br>Foto 3</div>
+                <div class="gallery-item">📸<br>Foto 4</div>
+                <div class="gallery-item">📸<br>Foto 5</div>
+                <div class="gallery-item">📸<br>Foto 6</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. REDES SOCIALES -->
+    <section class="social-section">
+        <div class="container">
+            <h2 class="section-title">Sígueme</h2>
+            <div class="social-links">
+                <!-- Reemplaza los '#' con tus enlaces reales -->
+                <a href="#" class="social-btn" title="Spotify" target="_blank">🎵</a>
+                <a href="#" class="social-btn" title="TikTok" target="_blank">🎤</a>
+                <a href="#" class="social-btn" title="YouTube Music" target="_blank">▶️</a>
+                <a href="#" class="social-btn" title="Instagram" target="_blank">📷</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FOOTER Y CTA FINAL -->
+    <footer>
+        <div class="container">
+            <a href="https://whatsapp.com" class="cta-final" target="_blank">📲 Armar mi Show por WhatsApp</a>
+            <p class="footer-text">© 2026 Ari Sophie. Todos los derechos reservados. | Diseño profesional para artistas.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://whatsapp.com" class="whatsapp-float" target="_blank" title="Reservar por WhatsApp">📲</a>
+
 </body>
 </html>
