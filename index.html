@@ -253,7 +253,7 @@
             position: absolute; left: 0;
         }
 
-        /* --- GALERÍA DINÁMICA --- */
+        /* --- GALERÍA --- */
         .gallery-section { padding: 80px 0; background-color: var(--bg-dark); }
         .gallery-grid {
             display: grid;
@@ -297,11 +297,6 @@
         .gallery-caption p {
             font-size: 0.8rem; color: #ccc;
             line-height: 1.3;
-        }
-
-        .gallery-loading {
-            text-align: center; padding: 40px;
-            color: var(--text-muted); font-style: italic;
         }
 
         /* --- PRECIOS --- */
@@ -606,12 +601,12 @@
         </div>
     </section>
 
-    <!-- 4. ESTADÍSTICAS (SE ACTUALIZA AUTOMÁTICAMENTE CON EL JSON) -->
+    <!-- 4. ESTADÍSTICAS (actualiza manualmente el número según las fotos que tengas) -->
     <section class="stats-section">
         <div class="container">
             <div class="stats-grid fade-in">
                 <div class="stat-item">
-                    <h3 id="stat-eventos">0</h3>
+                    <h3>+5</h3>
                     <p>Eventos realizados</p>
                 </div>
                 <div class="stat-item">
@@ -623,7 +618,7 @@
                     <p>Puntualidad</p>
                 </div>
                 <div class="stat-item">
-                    <h3 id="stat-personas">0</h3>
+                    <h3>+75</h3>
                     <p>Personas felices</p>
                 </div>
             </div>
@@ -690,12 +685,68 @@
         </div>
     </section>
 
-    <!-- 7. GALERÍA DINÁMICA (SE CARGA DESDE galeria.json) -->
+    <!-- 7. GALERÍA (HTML PURO, CARGA INMEDIATA) -->
     <section class="gallery-section">
         <div class="container">
             <h2 class="section-title fade-in">Galería de Eventos</h2>
-            <div class="gallery-grid" id="gallery-grid">
-                <p class="gallery-loading">Cargando galería...</p>
+            <div class="gallery-grid fade-in">
+
+                <!-- Foto 1: Serenata a profesora -->
+                <div class="gallery-item" onclick="openLightbox('SERENATA_A_PROFESORA.png', 'Serenata para profesora de primaria', 'Un momento emotivo para agradecer a quien dedica su vida a enseñar.')">
+                    <img src="SERENATA_A_PROFESORA.png" alt="Serenata a profesora" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Serenata para profesora</h4>
+                        <p>Un momento emotivo para agradecer.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 2: Show para madrecita -->
+                <div class="gallery-item" onclick="openLightbox('MADRE_PROF.png', 'Show para madrecita', 'Una presentación que conmovió a toda la familia.')">
+                    <img src="MADRE_PROF.png" alt="Show para madrecita" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Show para madrecita</h4>
+                        <p>Una presentación que conmovió.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 3: Aniversario de colegio -->
+                <div class="gallery-item" onclick="openLightbox('ANIVER_SAN.png', 'Recibimiento en aniversario de colegio', 'Alegría y música para celebrar un año más de la institución.')">
+                    <img src="ANIVER_SAN.png" alt="Aniversario de colegio" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Aniversario de colegio</h4>
+                        <p>Alegría y música para celebrar.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 4: Santa Rosa de Lima -->
+                <div class="gallery-item" onclick="openLightbox('canta_sta_ro.png', 'Canto de las Mañanitas a Santa Rosa de Lima', 'Celebración por el 30 de agosto, aniversario de Lima.')">
+                    <img src="canta_sta_ro.png" alt="Santa Rosa de Lima" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Mañanitas a Santa Rosa</h4>
+                        <p>Celebración del 30 de agosto.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 5: Aniversario de Lima -->
+                <div class="gallery-item" onclick="openLightbox('plaza_lima.png', 'Aniversario de Lima', 'Un momento especial en el corazón de la ciudad.')">
+                    <img src="plaza_lima.png" alt="Aniversario de Lima" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Aniversario de Lima</h4>
+                        <p>Un momento en el corazón de la ciudad.</p>
+                    </div>
+                </div>
+
+                <!-- PRÓXIMAS FOTOS: copia este bloque y cambia el nombre del archivo, título y descripción -->
+                <!--
+                <div class="gallery-item" onclick="openLightbox('NOMBRE_FOTO.jpg', 'Título', 'Descripción')">
+                    <img src="NOMBRE_FOTO.jpg" alt="Título" loading="lazy">
+                    <div class="gallery-caption">
+                        <h4>Título</h4>
+                        <p>Descripción corta.</p>
+                    </div>
+                </div>
+                -->
+
             </div>
         </div>
     </section>
@@ -808,73 +859,29 @@
     </div>
 
     <script>
-        // ===== CARGAR GALERÍA DESDE JSON =====
-        let imagenesGaleria = [];
-
-        async function cargarGaleria() {
-            try {
-                const respuesta = await fetch('galeria.json');
-                if (!respuesta.ok) throw new Error('No se pudo cargar galeria.json');
-                imagenesGaleria = await respuesta.json();
-                
-                const grid = document.getElementById('gallery-grid');
-                grid.innerHTML = '';
-                
-                if (imagenesGaleria.length === 0) {
-                    grid.innerHTML = '<p class="gallery-loading">Aún no hay fotos en la galería.</p>';
-                    return;
-                }
-
-                imagenesGaleria.forEach((item, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'gallery-item fade-in';
-                    div.onclick = () => openLightbox(item.archivo, item.titulo, item.descripcion, index);
-                    div.innerHTML = `
-                        <img src="${item.archivo}" alt="${item.titulo}" loading="lazy">
-                        <div class="gallery-caption">
-                            <h4>${item.titulo}</h4>
-                            <p>${item.descripcion}</p>
-                        </div>
-                    `;
-                    grid.appendChild(div);
-                });
-
-                // Actualizar estadísticas automáticamente
-                document.getElementById('stat-eventos').textContent = '+' + imagenesGaleria.length;
-                document.getElementById('stat-personas').textContent = '+' + (imagenesGaleria.length * 15);
-
-                // Reaplicar animaciones a los nuevos elementos
-                document.querySelectorAll('.gallery-item.fade-in').forEach(el => observer.observe(el));
-
-            } catch (error) {
-                console.error('Error al cargar galería:', error);
-                document.getElementById('gallery-grid').innerHTML = 
-                    '<p class="gallery-loading">No se pudo cargar la galería. Verifica que galeria.json exista.</p>';
-            }
-        }
-
-        // Cargar al inicio
-        cargarGaleria();
-
         // ===== LIGHTBOX =====
+        const imagenesGaleria = [
+            { src: 'SERENATA_A_PROFESORA.png', titulo: 'Serenata para profesora de primaria', descripcion: 'Un momento emotivo para agradecer a quien dedica su vida a enseñar.' },
+            { src: 'MADRE_PROF.png', titulo: 'Show para madrecita', descripcion: 'Una presentación que conmovió a toda la familia.' },
+            { src: 'ANIVER_SAN.png', titulo: 'Recibimiento en aniversario de colegio', descripcion: 'Alegría y música para celebrar un año más de la institución.' },
+            { src: 'canta_sta_ro.png', titulo: 'Canto de las Mañanitas a Santa Rosa de Lima', descripcion: 'Celebración por el 30 de agosto, aniversario de Lima.' },
+            { src: 'plaza_lima.png', titulo: 'Aniversario de Lima', descripcion: 'Un momento especial en el corazón de la ciudad.' }
+        ];
+
         let currentImageIndex = 0;
 
-        function openLightbox(src, titulo, descripcion, index = null) {
+        function openLightbox(src, titulo, descripcion) {
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
             const cap = document.getElementById('lightbox-caption');
             
-            // Si es la foto de perfil, no está en el array
-            if (index === null) {
-                currentImageIndex = -1;
-                img.src = src;
-                cap.innerHTML = `<strong>${titulo}</strong><small>${descripcion}</small>`;
-            } else {
-                currentImageIndex = index;
-                img.src = src;
-                cap.innerHTML = `<strong>${titulo}</strong><small>${descripcion}</small>`;
-            }
+            // Buscar el índice de la imagen en el array (si está)
+            const idx = imagenesGaleria.findIndex(i => i.src === src);
+            if (idx !== -1) currentImageIndex = idx;
+            else currentImageIndex = -1;
             
+            img.src = src;
+            cap.innerHTML = `<strong>${titulo}</strong><small>${descripcion}</small>`;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -885,14 +892,14 @@
         }
 
         function changeImage(direction) {
-            if (currentImageIndex === -1) return; // Si es la foto de perfil, no navegar
+            if (currentImageIndex === -1) return;
             
             currentImageIndex += direction;
             if (currentImageIndex < 0) currentImageIndex = imagenesGaleria.length - 1;
             if (currentImageIndex >= imagenesGaleria.length) currentImageIndex = 0;
             
             const item = imagenesGaleria[currentImageIndex];
-            document.getElementById('lightbox-img').src = item.archivo;
+            document.getElementById('lightbox-img').src = item.src;
             document.getElementById('lightbox-caption').innerHTML = 
                 `<strong>${item.titulo}</strong><small>${item.descripcion}</small>`;
         }
