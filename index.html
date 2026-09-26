@@ -186,7 +186,7 @@
             color: var(--gold);
         }
 
-        /* --- SECCIÓN BIOGRAFÍA (MÁS HUMILDE) --- */
+        /* --- SECCIÓN BIOGRAFÍA --- */
         .bio-section {
             padding: 80px 0;
             background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
@@ -510,7 +510,147 @@
             transform: scale(1.1);
         }
 
-        /* --- REDES SOCIALES --- */
+        /* --- TARJETA VIRTUAL --- */
+        .virtual-card-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+        }
+
+        .virtual-card {
+            max-width: 420px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #1a1a2e, #151525);
+            border-radius: 25px;
+            border: 2px solid var(--gold);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .virtual-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(243, 156, 18, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .virtual-card h3 {
+            color: var(--gold);
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .virtual-card .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .virtual-card .qr-container {
+            background: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(243, 156, 18, 0.3);
+        }
+
+        .virtual-card .qr-container img {
+            width: 180px;
+            height: 180px;
+            display: block;
+        }
+
+        .virtual-card .contact-info {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .virtual-card .contact-info span {
+            color: var(--gold);
+        }
+
+        .virtual-card .web-link {
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .virtual-card .web-link:hover {
+            text-decoration: underline;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: #fff;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20b859;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-share {
+            background-color: var(--gold);
+            color: #0f0f1a;
+        }
+
+        .btn-share:hover {
+            background-color: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+        }
+
+        .btn-save {
+            background-color: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-save:hover {
+            background-color: var(--gold);
+            color: #0f0f1a;
+            transform: translateY(-3px);
+        }
+
+        /* --- REDES SOCIALES (preparado por si acaso) --- */
         .social-section {
             padding: 60px 0;
             background-color: var(--bg-card);
@@ -655,6 +795,20 @@
                 bottom: 20px;
                 right: 20px;
             }
+            .virtual-card {
+                padding: 30px 20px;
+            }
+            .virtual-card .qr-container img {
+                width: 150px;
+                height: 150px;
+            }
+            .card-actions {
+                flex-direction: column;
+            }
+            .card-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -698,7 +852,7 @@
         </div>
     </section>
 
-    <!-- 3. SECCIÓN DE BIOGRAFÍA (MÁS HUMILDE) -->
+    <!-- 3. SECCIÓN DE BIOGRAFÍA -->
     <section class="bio-section">
         <div class="container">
             <h2 class="section-title">Sobre Ari Sophie</h2>
@@ -852,51 +1006,4 @@
         <div class="container">
             <div class="mobility-box">
                 <h3>🚐 Política de Movilidad</h3>
-                <p>Las tarifas mostradas aplican para <strong>Lima Metropolitana</strong>. Se añade una <strong>tarifa plana de movilidad de S/ 50</strong> por transporte privado certificado.</p>
-                <p>Para <strong>Lima Provincias y otras regiones</strong>, la tarifa de movilidad se coordina directamente según la ubicación.</p>
-                <p class="coordination">Garantizamos puntualidad y el cuidado del vestuario profesional en cada presentación.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. GALERÍA DE EVENTOS -->
-    <section class="gallery-section">
-        <div class="container">
-            <h2 class="section-title">Galería de Eventos</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">📸<br>Foto 1</div>
-                <div class="gallery-item">📸<br>Foto 2</div>
-                <div class="gallery-item">📸<br>Foto 3</div>
-                <div class="gallery-item">📸<br>Foto 4</div>
-                <div class="gallery-item">📸<br>Foto 5</div>
-                <div class="gallery-item">📸<br>Foto 6</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. REDES SOCIALES -->
-    <section class="social-section">
-        <div class="container">
-            <h2 class="section-title">Sígueme</h2>
-            <div class="social-links">
-                <a href="#" class="social-btn" title="Spotify" target="_blank">🎵</a>
-                <a href="#" class="social-btn" title="TikTok" target="_blank">🎤</a>
-                <a href="#" class="social-btn" title="YouTube Music" target="_blank">▶️</a>
-                <a href="#" class="social-btn" title="Instagram" target="_blank">📷</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 10. FOOTER Y CTA FINAL -->
-    <footer>
-        <div class="container">
-            <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20armar%20mi%20show%20por%20WhatsApp." class="cta-final" target="_blank">📲 Armar mi Show por WhatsApp</a>
-            <p class="footer-text">© 2026 Ari Sophie. Todos los derechos reservados. | Diseño profesional para artistas.</p>
-        </div>
-    </footer>
-
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/51916489520?text=Hola,%20equipo%20de%20Ari%20Sophie.%20Quisiera%20coordinar%20un%20show." class="whatsapp-float" target="_blank" title="Reservar por WhatsApp">📲</a>
-
-</body>
-</html>
+                <p>Las tarifas mostradas aplican para <strong>Lima Metropolitana</strong>. Se añade una <strong>tarifa plana de movilidad de S
